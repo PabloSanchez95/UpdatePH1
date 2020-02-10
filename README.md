@@ -11,12 +11,6 @@ Script to update Essentials PH1
 
 ### Installation steps
 
-- To get pythons venv and dependencies, run:
-
-```sh
-make start
-```
-
 - To transfer boot to the phones internal memory:
 
 ```sh

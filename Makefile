@@ -7,10 +7,6 @@
 adb = tools/adb
 fastboot = tools/fastboot
 
-####################
-# Android commands #
-####################
-
 devices:
 	@echo "Checking adb"
 	@${adb} devices
@@ -38,7 +34,7 @@ clean:
 
 push_file: clean
 	@echo "Extracting file..."
-	@python unzip_update.py
+	@python3 unzip_update.py
 	@mv UpdateFiles/boot.img boot.img
 	@rmdir UpdateFiles
 	@${adb} push boot.img /mnt/sdcard/Flash/boot.img
@@ -48,17 +44,3 @@ pull_file:
 	@echo "Getting magisk patched..."
 	@${adb} pull /mnt/sdcard/Download/magisk_patched.img magisk_patched.img
 	@make clean
-
-
-##########################
-#    Environment setup   #
-##########################
-start:
-	@echo "Making virtual env"
-	@( \
-		if [ ! -d venv ]; then python3 -m venv --copies venv; fi; \
-		source venv/bin/activate; \
-		pip install -qU pip; \
-		pip --version; \
-	)
-	

@@ -11,12 +11,11 @@ def unzip_update():
     update_file = update_file[0]
 
     with ZipFile(update_file, "r") as zip_ref:
-        update_path = update_file.replace(".zip", "")
-
-        target_file = zip_ref.getinfo(f"{update_path}/boot.img")
-        target_file.filename = os.path.basename(target_file.filename)
-        target_file
-        zip_ref.extract(target_file, "UpdateFiles/")
+        for zip_info in zip_ref.infolist():
+            if zip_info.filename[-1] == '/':
+                continue
+            zip_info.filename = os.path.basename(zip_info.filename)
+            zip_ref.extract(zip_info, "UpdateFiles/")
 
 
 if __name__ == "__main__":

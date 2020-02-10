@@ -27,5 +27,5 @@ make pull_file bootloader_restart
 - To flash the patched image and reboot phone:
 
 ```sh
-make flash_boot reboot
+make flash_update reboot
 ```

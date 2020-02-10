@@ -1,29 +1,37 @@
-# README #
+# README
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Script to update Essentials PH1
 
-### What is this repository for? ###
+### Getting started
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+- It uses python [3.7+](https://www.python.org/downloads/)
+- Version 0.1
+- [Essentials developer page](https://www.essential.com/developer/current-builds)
+- [ADB and fastboot tools](https://developer.android.com/studio/releases/platform-tools.html)
 
-### How do I get set up? ###
+### Installation steps
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+- To get pythons venv and dependencies, run:
 
-### Contribution guidelines ###
+```sh
+make start
+```
 
-* Writing tests
-* Code review
-* Other guidelines
+- To transfer boot to the phones internal memory:
 
-### Who do I talk to? ###
+```sh
+make push_file
+```
 
-* Repo owner or admin
-* Other community or team contact
+- Use magisk to patch file
+- To get de patched image from the phone and reboot the phone:
+
+```sh
+make pull_file bootloader_restart
+```
+
+- To flash the patched image and reboot phone:
+
+```sh
+make flash_boot reboot
+```

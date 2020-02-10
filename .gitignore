@@ -109,3 +109,8 @@ dist
 .vscode
 
 tools
+
+*.zip
+
+venv
+UpdateFiles

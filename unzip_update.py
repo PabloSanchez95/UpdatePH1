@@ -4,7 +4,7 @@ from zipfile import ZipFile
 
 
 def unzip_update():
-    update_file = glob("PH1-Images-*.zip")
+    update_file = glob("PH1-Images*.zip")
 
     if len(update_file) != 1:
         return -1
